@@ -1,0 +1,13 @@
+# tmux: TPMが `prefix + I` でクローンするので追跡不要
+tmux/.config/tmux/plugins/*
+!tmux/.config/tmux/plugins/.gitkeep
+
+# hypr: 旧設定のバックアップ、公開不要
+hypr/.config/hypr/.back/
+
+# hypr: ビルド済みバイナリ(hyprscroller-ngは別リポジトリで管理)
+hypr/.config/hypr/plugins/**/*.so
+
+# OS/エディタ系
+.DS_Store
+*.swp
