@@ -1,0 +1,127 @@
+gui:
+  theme:
+    activeBorderColor:
+      - "#fe8019"
+      - bold
+    inactiveBorderColor:
+      - "#665c54"
+    selectedLineBgColor:
+      - "#3c3836"
+    optionsTextColor:
+      - "#83a598"
+    cherryPickedCommitBgColor:
+      - "#3c3836"
+    cherryPickedCommitFgColor:
+      - "#fabd2f"
+    unstagedChangesColor:
+      - "#fb4934"
+    defaultFgColor:
+      - "#ebdbb2"
+  authorColors:
+    "kuroiko": "#b8bb26"
+    "*": "#83a598"
+  branchColors:
+    "main": "#fb4934"
+    "master": "#fb4934"
+    "feature/*": "#b8bb26"
+    "fix/*": "#fe8019"
+  nerdFontsVersion: "3"
+  showIcons: true
+  showFileTree: true
+  showRandomTip: false
+  showCommandLog: false
+  mouseEvents: false
+  border: rounded
+  screenMode: normal
+  sidePanelWidth: 0.3333
+  commitLength:
+    show: true
+  showDivergenceFromBaseBranch: arrowAndNumber
+
+git:
+  pagers:
+    - colorArg: always
+      pager: ""
+  autoFetch: true
+  autoRefresh: true
+  parseEmoji: true
+  mainBranches:
+    - main
+    - master
+  disableForcePushing: false
+  overrideGpg: false
+  log:
+    order: topo-order
+    showGraph: always
+
+os:
+  editPreset: nvim
+  copyToClipboardCmd: wl-copy
+
+update:
+  method: never
+
+confirmOnQuit: false
+disableStartupPopups: true
+
+customCommands:
+  - key: "<c-g>"
+    context: "global"
+    description: "push --force-with-lease"
+    command: "git push --force-with-lease"
+    loadingText: "pushing (force-with-lease)..."
+
+  - key: "<c-y>"
+    context: "files"
+    description: "commit as WIP"
+    command: 'git commit -m "WIP"'
+
+  - key: "<c-x>"
+    context: "commits"
+    description: "interactive rebase onto main"
+    command: "git rebase -i main"
+    loadingText: "rebasing onto main..."
+
+keybinding:
+  universal:
+    quit: "q"
+    return: "<esc>"
+    nextTab: "]"
+    prevTab: "["
+    nextBlock: "<tab>"
+    prevBlock: "<s-tab>"
+    prevItem: "k"
+    nextItem: "j"
+    prevPage: "<c-u>"
+    nextPage: "<c-d>"
+    scrollUpMain: "K"
+    scrollDownMain: "J"
+    edit: "e"
+    openFile: "o"
+    refresh: "r"
+    createRebaseOptionsMenu: "m"
+    pushFiles: "P"
+    pullFiles: "p"
+    filteringMenu: "<c-s>"
+    diffingMenu: "W"
+    copyToClipboard: "y"
+    submitEditorText: "<enter>"
+    confirm: "<enter>"
+  files:
+    commitChanges: "c"
+    commitChangesWithEditor: "C"
+    stageAll: "a"
+    ignoreFile: "i"
+  branches:
+    checkoutBranchByName: "b"
+    forceCheckoutBranch: "F"
+    rebaseBranch: "R"
+    mergeIntoCurrentBranch: "M"
+  commits:
+    squashDown: "s"
+    renameCommit: "r"
+    resetCommitAuthor: "a"
+    pickCommit: "p"
+    revertCommit: "t"
+    cherryPickCopy: "c"
+    pasteCommits: "v"
