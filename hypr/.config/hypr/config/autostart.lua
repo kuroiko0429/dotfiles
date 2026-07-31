@@ -1,36 +1,31 @@
 ------------------------------------------------------------------------
--- 3. AUTOSTART APPLICATIONS (自動起動)
+-- AUTOSTART
+-- bar/widget類は起動しない。kitty + tmux運用の最小構成。
 ------------------------------------------------------------------------
 hl.on("hyprland.start", function()
-	-- Portal settings & DBus synchronization
 	hl.exec_cmd("dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP")
-	hl.exec_cmd("systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP")
-	hl.exec_cmd("nextcloud --background")
-	--hl.exec_cmd("kdeconnectd")
-	--hl.exec_cmd("kdeconnect-indicator")
-	hl.exec_cmd("hyprpm reload")
 
-	-- Launch Authentication Agent
-	hl.exec_cmd(
-		"/usr/lib/polkit-kde-authentication-agent-1 || /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
-	)
-	hl.exec_cmd("quickshell -c /home/kuroiko/.config/quickshell/kuroiko_bar//")
-	--hl.exec_cmd("quickshell -c /home/kuroiko/.config/quickshell/android-like/")
-	hl.exec_cmd("awww-daemon")
-	-- Status bar & Wallpaper & Notifications
-	hl.exec_cmd("dunst || swaync")
+	-- Polkit authentication agent
+	hl.exec_cmd("/usr/lib/polkit-kde-authentication-agent-1")
 
-	-- Input Method Daemon
-	hl.exec_cmd("fcitx5 -d --replace")
-
-	-- Screen Idle & Lock Management
+	-- Idle / lock management
 	hl.exec_cmd("hypridle")
 
-	-- Clipboard manager (cliphist)
+	-- Notification daemon
+	hl.exec_cmd("sleep 1 && hyprctl plugin load /home/kuroiko/.config/hypr/plugins/hyprscrolling.so")
+	-- hl.exec_cmd("tide-island")
+	-- hl.exec_cmd("qs -c m3-shell")
+	-- Wallpaper (awww)
+	hl.exec_cmd("awww-daemon")
+	hl.exec_cmd("sleep 1 && awww img /home/kuroiko/Pictures/Wallpapers/snake.png")
+
+	-- Clipboard history (fuzzel + cliphist で呼び出す)
 	hl.exec_cmd("wl-paste --type text --watch cliphist store")
 	hl.exec_cmd("wl-paste --type image --watch cliphist store")
 
-	-- Load hyprscrolling plugin with delay
-	hl.exec_cmd("sleep 1 && hyprctl plugin load /home/kuroiko/.config/hypr/plugins/hyprscrolling/hyprscrolling.so")
-	--hl.exec_cmd("wayvnc 0.0.0.0 5900")
+	-- Japanese IME
+	hl.exec_cmd("fcitx5 -d --replace")
+
+	-- hypr-ws daemon: ワークスペース変更イベントを監視して tmux ステータスバーを即時更新
+	hl.exec_cmd("pkill -f 'hypr-ws -d'; sleep 0.3 && /home/kuroiko/Documents/hypr/hypr-ws -d")
 end)
