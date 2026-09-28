@@ -37,11 +37,10 @@ gui:
   commitLength:
     show: true
   showDivergenceFromBaseBranch: arrowAndNumber
-
 git:
-  pagers:
+  diffRenderers:
     - colorArg: always
-      pager: ""
+      type: rawGit
   autoFetch: true
   autoRefresh: true
   parseEmoji: true
@@ -53,35 +52,28 @@ git:
   log:
     order: topo-order
     showGraph: always
-
 os:
   editPreset: nvim
   copyToClipboardCmd: wl-copy
-
 update:
   method: never
-
 confirmOnQuit: false
 disableStartupPopups: true
-
 customCommands:
   - key: "<c-g>"
     context: "global"
     description: "push --force-with-lease"
     command: "git push --force-with-lease"
     loadingText: "pushing (force-with-lease)..."
-
   - key: "<c-y>"
     context: "files"
     description: "commit as WIP"
     command: 'git commit -m "WIP"'
-
   - key: "<c-x>"
     context: "commits"
     description: "interactive rebase onto main"
     command: "git rebase -i main"
     loadingText: "rebasing onto main..."
-
 keybinding:
   universal:
     quit: "q"

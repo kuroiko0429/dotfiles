@@ -14,13 +14,3 @@ require("config.general")
 require("config.animations")
 require("config.binds")
 require("config.rules")
-
-
--- Brain_ShellKeybinds
-dofile("/home/kuroiko/.config/Brain_Shell/Brain_ShellKeybinds.lua")
-
--- Brain_ShellLayout
-dofile("/home/kuroiko/.config/Brain_Shell/Brain_ShellLayout.lua")
-
--- Brain_ShellAutostart
-dofile("/home/kuroiko/.config/Brain_Shell/Brain_ShellAutostart.lua")

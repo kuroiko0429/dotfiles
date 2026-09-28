@@ -116,14 +116,14 @@ alias -g G='| grep'
 alias -g W='| wc -l'
 alias -g L='| less'
 alias nv='nvim'
-
+alias pi='omp'
 # --- ls / eza ---
 if command -v eza >/dev/null 2>&1; then
     # ezaがインストールされている場合 (CachyOSなど)
-    alias ls='eza --icons'
-    alias ll='eza -l --icons'
-    alias la='eza -la --icons'
-    alias tree='eza --tree --icons'
+    alias ls='eza --icons auto'
+    alias ll='eza -l --icons auto'
+    alias la='eza -la --icons auto'
+    alias tree='eza --tree --icons auto'
 else
     # ezaがない場合 (デフォルトのUbuntuコンテナなど)
     alias ls='ls --color=auto'
@@ -163,10 +163,7 @@ alias up="uv run python"
 # ==========================================
 # XWayland
 # ==========================================
-export QT_QPA_PLATFORM=xcb
-export QT_QPA_PLATFORM_PLUGIN_PATH=/usr/lib/qt6/plugins
 export QT_QPA_FONTDIR=/usr/share/fonts
-
 
 # ==========================================
 # テーマの詳細設定と起動時コマンド
@@ -186,3 +183,6 @@ elif command -v neofetch >/dev/null 2>&1; then
 fi
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/go/bin:$PATH"
+export PATH="$HOME/.npm-global/bin:$PATH"
+export DOCKER_HOST="unix://$XDG_RUNTIME_DIR/podman/podman.sock"
+export PATH="/home/kuroiko/.cache/.bun/bin:$PATH"

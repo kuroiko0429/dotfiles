@@ -4,41 +4,41 @@
 ------------------------------------------------------------------------
 hl.config({
 	render = {
-		-- direct_scanout = true, -- managed by Brain Shell: Layout & Behavior
+		direct_scanout = true,
 	},
 
 	cursor = {
-		-- inactive_timeout = 3, -- managed by Brain Shell: Layout & Behavior
-		-- no_hardware_cursors = true, -- managed by Brain Shell: Layout & Behavior
+		inactive_timeout = 3,
+		no_hardware_cursors = true,
 	},
 
 	general = {
 
 		col = {
-			-- active_border = "rgba(504945aa)",
-			-- inactive_border = "rgba(282828aa)",
+			active_border = "rgba(504945aa)",
+			inactive_border = "rgba(282828aa)",
 		},
 
-		-- resize_on_border = true, -- managed by Brain Shell: Layout & Behavior
-		-- layout = "hyprscrolling", -- managed by Brain Shell: Layout & Behavior
-		-- allow_tearing = false, -- managed by Brain Shell: Layout & Behavior
+		resize_on_border = true,
+		layout = "hyprscrolling",
+		allow_tearing = false,
 	},
 
 	decoration = {
-		-- rounding_power = 2, -- managed by Brain Shell: Layout & Behavior
+		rounding_power = 2,
 
-		-- active_opacity = 1.0, -- managed by Brain Shell: Layout & Behavior
-		-- inactive_opacity = 0.95, -- managed by Brain Shell: Layout & Behavior
+		active_opacity = 1.0,
+		inactive_opacity = 0.95,
 
 		blur = {
-			-- size = 4, -- managed by Brain Shell: Layout & Behavior
-			-- passes = 1, -- managed by Brain Shell: Layout & Behavior
-			-- vibrancy = 0.1696, -- managed by Brain Shell: Layout & Behavior
+			size = 4,
+			passes = 1,
+			vibrancy = 0.1696,
 		},
 
 		shadow = {
-			-- range = 8, -- managed by Brain Shell: Layout & Behavior
-			-- render_power = 3, -- managed by Brain Shell: Layout & Behavior
+			range = 8,
+			render_power = 3,
 			color = "rgba(0000003c)",
 		},
 	},
@@ -48,25 +48,25 @@ hl.config({
 	},
 
 	gestures = {
-		-- workspace_swipe_distance = 700, -- managed by Brain Shell: Layout & Behavior
-		-- workspace_swipe_cancel_ratio = 0.2, -- managed by Brain Shell: Layout & Behavior
-		-- workspace_swipe_direction_lock = true, -- managed by Brain Shell: Layout & Behavior
-		-- workspace_swipe_create_new = true, -- managed by Brain Shell: Layout & Behavior
+		workspace_swipe_distance = 700,
+		workspace_swipe_cancel_ratio = 0.2,
+		workspace_swipe_direction_lock = true,
+		workspace_swipe_create_new = true,
 	},
 
 	misc = {
-		-- disable_hyprland_logo = true, -- managed by Brain Shell: Layout & Behavior
-		-- disable_splash_rendering = true, -- managed by Brain Shell: Layout & Behavior
-		-- mouse_move_enables_dpms = true, -- managed by Brain Shell: Layout & Behavior
-		-- key_press_enables_dpms = true, -- managed by Brain Shell: Layout & Behavior
+		disable_hyprland_logo = true,
+		disable_splash_rendering = true,
+		mouse_move_enables_dpms = true,
+		key_press_enables_dpms = true,
 		background_color = "rgba(1d2021ff)",
 	},
 
 	input = {
-		-- sensitivity = 0.8, -- managed by Brain Shell: Layout & Behavior
+		sensitivity = 0.8,
 
 		touchpad = {
-			-- clickfinger_behavior = true, -- managed by Brain Shell: Layout & Behavior
+			clickfinger_behavior = true,
 		},
 	},
 	plugin = {
@@ -168,6 +168,82 @@ hl.config({
 				-- specifying clientside will use the actual shape, but will be pixelated
 				fallback = "clientside",
 			},
+		},
+		gloview = {
+			layout = "rows",
+			gap = 34,
+			padding = 80,
+			padding_top = 40,
+			padding_bottom = 70,
+			max_scale = 1.0,
+			duration = 200,
+			preview_round = 12,
+			blur = 1,
+
+			switch_animation = 1,
+			switch_duration = 260,
+			move_animation = 1,
+			move_duration = 240,
+
+			anchor = "top",
+			strip_offset = 0,
+			strip_height = 150,
+			strip_margin = 22,
+			strip_gap = 18,
+			strip_card_round = 10,
+
+			focus_follows_mouse = 1,
+			scroll_switches_workspace = 1,
+			passthrough_keys = 1,
+			exit_on_click = 1,
+			exit_on_switch = 0,
+
+			key_close = "escape",
+			key_next_workspace = "tab",
+			key_prev_workspace = "shift+tab",
+			key_activate = "enter",
+			key_close_window = "d",
+			key_left = "left",
+			key_right = "right",
+			key_up = "up",
+			key_down = "down",
+			key_desktop = "shift",
+			key_all_workspaces = "a",
+			key_workspace = "1,2,3,4,5,6,7,8,9,0",
+
+			show_all_workspaces = 0,
+			show_empty = 1,
+			dynamic_workspaces = 1,
+			autodelete_empty = 1,
+			show_workspace_labels = 1,
+			show_window_labels = 1,
+			show_special = 0,
+			strip_all_card = 1,
+			drag_to_swap = 1,
+			switch_on_drop = 0,
+			switch_on_new_workspace = 1,
+
+			hide_top_layers = 0,
+			hide_overlay_layers = 0,
+			above_namespaces = "",
+			debug_logs = 0,
+
+			select_border_size = 3,
+			select_border = 0xf066ccff,
+			close_button_color = 0xe6e23b3b,
+			backdrop_color = 0x73070a10,
+			strip_band_color = 0x24ffffff,
+			strip_card_color = 0x3a0e131c,
+			strip_active_color = 0x4d1c2c44,
+			strip_active_border = 0xf0ffffff,
+			strip_hover_border = 0x80ffffff,
+			strip_active_border_size = 2,
+			strip_hover_border_size = 2,
+			strip_plus_color = 0xd0eef4ff,
+			preview_bg = 0xff14181f,
+			shadow_color = 0x70000000,
+			hover_border = 0xf0ffffff,
+			hover_border_size = 3,
 		},
 	},
 })
